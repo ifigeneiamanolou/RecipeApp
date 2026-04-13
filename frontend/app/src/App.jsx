@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import './App.css'
+import LogIn from 'frontend/app/src/pages/login.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <p>new app</p>
+      {/* Redirect to log in */}
+      <LogIn/>
     </>
   )
 }
