@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
+import {Link} from "react-router-dom";
+
 
 const login = () => {
 
@@ -11,17 +14,20 @@ const login = () => {
 
   };
 
-  const handleForgotPassword = () => {
-
-  };
-
   const handleLogIn = () => {
 
   };
 
-  const handleSignUp = () => {
+  const handleEmail = () => {
 
   }
+   
+  const handlePassword = () => {
+
+  }
+
+  const [password, setPassword] = useState();
+  const [email, setEmail] = useState();
 
   return (
     <div className = "logIn-container">
@@ -29,12 +35,12 @@ const login = () => {
 
         <div className = "logIn-social">
             <button className = "social-button" onClick = {handleGoogle}>
-                <img src = "frontend/app/src/assets/google-photo.webp" className = "social-icon" alt = "google"> </img>
+                <img src = "frontend/app/src/assets/apple-photo.webp" className = "social-icon" alt = "google"/>
                 Google
             </button>
 
             <button className = "social-button" onClick = {handleApple}>
-                <img src = "frontend/app/src/assets/apple-photo.webp" className = "social-icon" alt = "apple"></img>
+                <img src = "frontend/app/src/assets/apple-photo.webp" className = "social-icon" alt = "apple"/>
                 Apple
             </button>
 
@@ -44,22 +50,23 @@ const login = () => {
 
         <form className = "log-in-form" action = "#">
             <div className = "inputWrapper">
-                <span class="material-symbols-outlined"> alternate_email </span>
-                <input className = "input-field" required placeholder = "Email adress" type = "email"></input>
+                <span class="material-symbols-outlined"> drafts </span>
+                <input type = "email" name = "email" className = "input-field" placeholder = "Email adress" onChange = {handleEmail} required/>
             </div>
             <div className = "inputWrapper">
-                <span class="material-symbols-outlined"> key </span>
-                <input className = "input-field" required placeholder = "Password" type = "password"> </input>
+                <span className="material-symbols-outlined"> key </span>
+                <input type = "password" name = "password" className = "input-field" placeholder = "Password" onChange = {handlePassword} required />
 
             </div>
         </form>
 
-        <a href = "#" className = "forgotPasswordLink" > Forgot Password </a>
-
-        <button onClick = {handleLogIn} className = "logInButton"> Log In </button>
+        <div className = "forgot password">
+            <Link to = "/password" className = "forgotPasswordLink" > Forgot Password </Link>
+            <button onClick = {handleLogIn} className = "logInButton"> Log In </button>
+        </div>
 
         <p className = "no-account-par"> Don't have an account ? 
-            <a href = "#" className = "sigUpLink"> Sign up </a>
+            <Link to = "/signup" className = "sigUpLink"> Sign up </Link>
         </p>
       
     </div>
